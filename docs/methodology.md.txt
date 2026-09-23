@@ -1,0 +1,95 @@
+# Methodology
+
+## 1. Data Pipeline
+
+Raw CSV files were loaded into Snowflake and organised into three layers:
+
+RAW → STAGING → ANALYTICS
+
+The RAW layer preserved the original source data.
+
+The STAGING layer standardised fields, enriched records and performed data-quality checks.
+
+The ANALYTICS layer contained business-ready tables used by Power BI.
+
+---
+
+## 2. Customer 360
+
+Customer-level metrics were created at one row per household.
+
+Key measures included:
+
+- Total baskets
+- Total shopping days
+- Shopping days per 30 days
+- Total sales value
+- Average basket value
+- Recency
+- Average days between shopping days
+- Campaign assignments
+- Coupon redemptions
+
+Average Basket Value:
+
+Total Sales Value / Total Baskets
+
+---
+
+## 3. Customer Segmentation
+
+Customers were scored using Recency, Frequency and Monetary value.
+
+R = Recency  
+F = Shopping Days per 30 Days  
+M = Total Historical Sales
+
+Customers were grouped into six behavioural segments:
+
+- High-Value Active
+- High-Value Inactive
+- Frequent Lower-Value
+- Occasional Higher-Value
+- Recent Lower-Engagement
+- Low-Engagement Inactive
+
+---
+
+## 4. Retention & Lapse
+
+Two equal 90-day periods were compared.
+
+Potential Lapse required:
+
+- Shopping days decline >= 50%
+- At least 3 shopping days lost
+- Sales decline >= 25%
+- Current recency >= 2x normal shopping gap
+
+This identified 140 Potential Lapse households.
+
+---
+
+## 5. Campaign Analysis
+
+Campaign response was calculated as:
+
+Responding Household-Campaign Assignments / Total Household-Campaign Assignments
+
+Campaign-period sales were compared with an equally long pre-campaign period.
+
+These comparisons are descriptive rather than causal.
+
+---
+
+## 6. Market Basket Analysis
+
+Category relationships were evaluated using:
+
+Support — frequency of the pair appearing together
+
+Confidence — probability of buying B when A is purchased
+
+Lift — association strength relative to chance
+
+Only pairs appearing in at least 500 baskets were retained.
