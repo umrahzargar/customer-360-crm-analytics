@@ -1,0 +1,228 @@
+table CAMPAIGN_PERFORMANCE
+	lineageTag: 8e1d129e-273f-4725-94f3-a12258199818
+
+	measure 'Total Campaigns' =
+			
+			DISTINCTCOUNT(
+			    CAMPAIGN_PERFORMANCE[CAMPAIGN]
+			)
+		formatString: 0
+		lineageTag: 065b33f2-73b7-479c-a59b-b6b323be060a
+
+	measure 'Household Campaign Assignments' =
+			
+			SUM(
+			    CAMPAIGN_PERFORMANCE[ASSIGNED_HOUSEHOLDS]
+			)
+		lineageTag: c2917490-21a7-42c5-ac5f-ce37d9cd96e6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Campaign Assigned Share %' =
+			
+			DIVIDE(
+			    [Campaign Assigned Households],
+			    [Total Households]
+			)
+		lineageTag: ba493adc-815b-4a52-bbc8-37538efc76a6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Campaign Assigned Share Subtext' =
+			
+			FORMAT([Campaign Assigned Share %], "0.0%")
+			    & " of all households"
+		lineageTag: 0f266114-e404-4d7c-b74a-355444294c75
+
+	measure 'Redeeming Households campaign' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(CUSTOMER_ENGAGEMENT_STATUS[HOUSEHOLD_KEY]),
+			    CUSTOMER_ENGAGEMENT_STATUS[HAS_COUPON_REDEMPTION] = TRUE()
+			)
+		formatString: 0
+		lineageTag: 88200027-bd39-4187-ac28-13f0e022d164
+
+	measure 'Assigned Household Redemption %' =
+			
+			DIVIDE(
+			    [Redeeming Households campaign],
+			    [Campaign Assigned Households]
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: f48e0c4d-bfd8-4e1d-8668-36ab5abad9a2
+
+	measure 'Assigned Redemption Subtext' =
+			
+			FORMAT([Assigned Household Redemption %], "0.0%")
+			    & " of assigned households redeemed"
+		lineageTag: a3ed3f7f-4697-4724-97ae-42c39946c6e0
+
+	measure 'Responding Assignments' =
+			
+			SUM(
+			    CAMPAIGN_PERFORMANCE[REDEEMING_HOUSEHOLDS]
+			)
+		lineageTag: 60ccc276-0a03-4a7b-aa11-f5bc83b5e046
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Assignment Response Rate' =
+			
+			DIVIDE(
+			    [Responding Assignments],
+			    [Household Campaign Assignments]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 503f34e7-32d0-497e-8773-5edd0568e088
+
+	measure 'Responding Assignments Subtext' =
+			
+			FORMAT([Responding Assignments], "#,0")
+			    & " responding assignments"
+		lineageTag: df977580-d7fa-477e-bdc0-f91ded5dac2b
+
+	measure 'Campaign Type Response Rate' =
+			
+			DIVIDE(
+			    [Responding Assignments],
+			    [Household Campaign Assignments]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 3996586f-21b5-4849-a62a-d70cde73d9dd
+
+	measure 'Assigned Households by Status' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(CUSTOMER_ENGAGEMENT_STATUS[HOUSEHOLD_KEY]),
+			    CUSTOMER_ENGAGEMENT_STATUS[HAS_CAMPAIGN_ASSIGNMENT] = TRUE()
+			)
+		formatString: 0
+		lineageTag: c0471be2-89e4-4eb8-89ed-f507f9b82b5d
+
+	measure 'Redeeming Assigned Households' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(CUSTOMER_ENGAGEMENT_STATUS[HOUSEHOLD_KEY]),
+			    CUSTOMER_ENGAGEMENT_STATUS[HAS_CAMPAIGN_ASSIGNMENT] = TRUE(),
+			    CUSTOMER_ENGAGEMENT_STATUS[HAS_COUPON_REDEMPTION] = TRUE()
+			)
+		formatString: 0
+		lineageTag: bc767eaa-81d5-48fe-bcab-914ca41c9aaf
+
+	measure 'Redemption Rate by Status' =
+			
+			DIVIDE(
+			    [Redeeming Assigned Households],
+			    [Assigned Households by Status]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: c4474b45-9e73-4677-8b2a-7625bffd763f
+
+	measure 'Assigned Redeeming Text' =
+			
+			FORMAT([Assigned Households by Status], "#,0")
+			    & " ("
+			    & FORMAT([Redeeming Assigned Households], "#,0")
+			    & ")"
+		lineageTag: 146332ac-c143-4590-a3c4-89d6d8496359
+
+	column CAMPAIGN
+		dataType: double
+		lineageTag: 681a1a69-5b35-4834-8ec8-74cb83f686f6
+		summarizeBy: sum
+		sourceColumn: CAMPAIGN
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CAMPAIGN_TYPE
+		dataType: string
+		lineageTag: 2100f3ab-6b81-4afb-bbca-f384073879a7
+		summarizeBy: none
+		sourceColumn: CAMPAIGN_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ASSIGNED_HOUSEHOLDS
+		dataType: double
+		lineageTag: 9757c90f-b33e-4d1f-8ceb-eab572ea4c24
+		summarizeBy: sum
+		sourceColumn: ASSIGNED_HOUSEHOLDS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column REDEEMING_HOUSEHOLDS
+		dataType: double
+		lineageTag: d5d01948-4c96-43c2-bdd0-5fe379144170
+		summarizeBy: sum
+		sourceColumn: REDEEMING_HOUSEHOLDS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTAL_REDEMPTION_EVENTS
+		dataType: double
+		lineageTag: f4373078-2e5e-4947-b8dc-d999fe13ae5d
+		summarizeBy: sum
+		sourceColumn: TOTAL_REDEMPTION_EVENTS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RESPONSE_RATE_PCT
+		dataType: double
+		lineageTag: 8a045f4a-e13c-4b37-8798-4dcbd8fedf3f
+		summarizeBy: sum
+		sourceColumn: RESPONSE_RATE_PCT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PRE_CAMPAIGN_SALES
+		dataType: double
+		lineageTag: 49a877d3-6f5e-4487-9613-bd29c34a087e
+		summarizeBy: sum
+		sourceColumn: PRE_CAMPAIGN_SALES
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DURING_CAMPAIGN_SALES
+		dataType: double
+		lineageTag: bd6da730-9407-453f-ba01-c4d781d02399
+		summarizeBy: sum
+		sourceColumn: DURING_CAMPAIGN_SALES
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SALES_CHANGE_PCT
+		dataType: double
+		lineageTag: 0c83b0e3-6841-417c-a413-8bdcccc02629
+		summarizeBy: sum
+		sourceColumn: SALES_CHANGE_PCT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition CAMPAIGN_PERFORMANCE = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases("UHFSJQH-KO10414.snowflakecomputing.com","CUSTOMER_ANALYTICS_WH",[Implementation="2.0"]),
+				    CUSTOMER_ANALYTICS_Database = Source{[Name="CUSTOMER_ANALYTICS",Kind="Database"]}[Data],
+				    ANALYTICS_Schema = CUSTOMER_ANALYTICS_Database{[Name="ANALYTICS",Kind="Schema"]}[Data],
+				    CAMPAIGN_PERFORMANCE_Table = ANALYTICS_Schema{[Name="CAMPAIGN_PERFORMANCE",Kind="Table"]}[Data]
+				in
+				    CAMPAIGN_PERFORMANCE_Table
+

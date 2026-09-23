@@ -1,0 +1,92 @@
+table MARKET_BASKET_PAIRS
+	lineageTag: d2254796-e0e8-4eff-9550-be3f8216078b
+
+	column CATEGORY_A
+		dataType: string
+		lineageTag: 9b4bf3c6-970f-4a6a-866e-466f42a7753a
+		summarizeBy: none
+		sourceColumn: CATEGORY_A
+
+		annotation SummarizationSetBy = Automatic
+
+	column CATEGORY_B
+		dataType: string
+		lineageTag: a8232a20-edaa-42d4-9840-b3f5f5ba8d58
+		summarizeBy: none
+		sourceColumn: CATEGORY_B
+
+		annotation SummarizationSetBy = Automatic
+
+	column BASKETS_TOGETHER
+		dataType: double
+		lineageTag: fec3de85-da48-402a-8e1a-958c6bdbd28f
+		summarizeBy: sum
+		sourceColumn: BASKETS_TOGETHER
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SUPPORT_PCT
+		dataType: double
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: bf03744a-567d-4aac-9328-6f9d1abec0c0
+		summarizeBy: sum
+		sourceColumn: SUPPORT_PCT
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONFIDENCE_A_TO_B_PCT
+		dataType: double
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 64624023-46d8-4585-ad98-f17ce023a012
+		summarizeBy: sum
+		sourceColumn: CONFIDENCE_A_TO_B_PCT
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONFIDENCE_B_TO_A_PCT
+		dataType: double
+		lineageTag: f011b1f8-7685-4cb0-9d06-f1db3581ecd5
+		summarizeBy: sum
+		sourceColumn: CONFIDENCE_B_TO_A_PCT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LIFT
+		dataType: double
+		lineageTag: 9868746d-8498-46b7-b957-8f45cdbff2d0
+		summarizeBy: sum
+		sourceColumn: LIFT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Category Pair'
+		dataType: string
+		lineageTag: f8036903-28ca-497e-bdf3-e01ff94db046
+		summarizeBy: none
+		sourceColumn: Category Pair
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MARKET_BASKET_PAIRS = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases("UHFSJQH-KO10414.snowflakecomputing.com","CUSTOMER_ANALYTICS_WH",[Implementation="2.0"]),
+				    CUSTOMER_ANALYTICS_Database = Source{[Name="CUSTOMER_ANALYTICS",Kind="Database"]}[Data],
+				    ANALYTICS_Schema = CUSTOMER_ANALYTICS_Database{[Name="ANALYTICS",Kind="Schema"]}[Data],
+				    MARKET_BASKET_PAIRS_Table = ANALYTICS_Schema{[Name="MARKET_BASKET_PAIRS",Kind="Table"]}[Data],
+				    #"Added Custom" = Table.AddColumn(MARKET_BASKET_PAIRS_Table, "Category Pair", each [CATEGORY_A] & " + " & [CATEGORY_B]),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Added Custom",{"CATEGORY_A", "CATEGORY_B", "Category Pair", "BASKETS_TOGETHER", "SUPPORT_PCT", "CONFIDENCE_A_TO_B_PCT", "CONFIDENCE_B_TO_A_PCT", "LIFT"})
+				in
+				    #"Reordered Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

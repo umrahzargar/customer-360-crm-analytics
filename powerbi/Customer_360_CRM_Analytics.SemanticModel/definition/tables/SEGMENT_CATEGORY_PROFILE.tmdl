@@ -1,0 +1,86 @@
+table SEGMENT_CATEGORY_PROFILE
+	lineageTag: b57caf55-ee2b-427b-bcc2-4d3f764be944
+
+	measure 'Category Share %' =
+			
+			MAX(
+			    SEGMENT_CATEGORY_PROFILE[SEGMENT_SHARE]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 32d19ab5-a200-4eef-bf7f-2f065d8b3bc2
+
+	measure 'Category Affinity' =
+			
+			MAX(
+			    SEGMENT_CATEGORY_PROFILE[AFFINITY_INDEX]
+			)
+		formatString: 0.00
+		lineageTag: 6ef7c428-bfa1-4ff9-a0ca-c3cd84c102d9
+
+	column CUSTOMER_SEGMENT
+		dataType: string
+		lineageTag: 32301ddd-2bbf-45f7-b4b8-6fdf77189799
+		summarizeBy: none
+		sourceColumn: CUSTOMER_SEGMENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column CATEGORY
+		dataType: string
+		lineageTag: b1260645-2ff9-4eba-adf8-fab863534523
+		summarizeBy: none
+		sourceColumn: CATEGORY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CATEGORY_SALES
+		dataType: double
+		lineageTag: 473521de-fcaa-4a90-9db6-c1c4f161a35d
+		summarizeBy: sum
+		sourceColumn: CATEGORY_SALES
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SEGMENT_SHARE
+		dataType: double
+		lineageTag: 5eef2bf0-899b-4028-8708-259221850136
+		summarizeBy: sum
+		sourceColumn: SEGMENT_SHARE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OVERALL_SHARE
+		dataType: double
+		lineageTag: 763ece95-cc97-442a-ae80-4abc1d437455
+		summarizeBy: sum
+		sourceColumn: OVERALL_SHARE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AFFINITY_INDEX
+		dataType: double
+		lineageTag: b78cfda1-27de-4798-9d12-72e5666a4b95
+		summarizeBy: sum
+		sourceColumn: AFFINITY_INDEX
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition SEGMENT_CATEGORY_PROFILE = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases("UHFSJQH-KO10414.snowflakecomputing.com","CUSTOMER_ANALYTICS_WH",[Implementation="2.0"]),
+				    CUSTOMER_ANALYTICS_Database = Source{[Name="CUSTOMER_ANALYTICS",Kind="Database"]}[Data],
+				    ANALYTICS_Schema = CUSTOMER_ANALYTICS_Database{[Name="ANALYTICS",Kind="Schema"]}[Data],
+				    SEGMENT_CATEGORY_PROFILE_Table = ANALYTICS_Schema{[Name="SEGMENT_CATEGORY_PROFILE",Kind="Table"]}[Data]
+				in
+				    SEGMENT_CATEGORY_PROFILE_Table
+

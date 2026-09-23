@@ -1,0 +1,299 @@
+table CUSTOMER_360_FINAL
+	lineageTag: 734d3e4a-4dad-450a-84b0-81962a051f5d
+
+	column HOUSEHOLD_KEY
+		dataType: double
+		lineageTag: 154fd4ea-5dd4-4f6e-80c6-100f764ac37f
+		summarizeBy: none
+		sourceColumn: HOUSEHOLD_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTAL_BASKETS
+		dataType: double
+		lineageTag: 3eb1d3b9-7a0c-417d-b816-1ba6b43033b9
+		summarizeBy: sum
+		sourceColumn: TOTAL_BASKETS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTAL_SHOPPING_DAYS
+		dataType: double
+		lineageTag: f306091b-3e17-4628-a3e6-52e1f3e7493e
+		summarizeBy: sum
+		sourceColumn: TOTAL_SHOPPING_DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SHOPPING_DAYS_PER_30_DAYS
+		dataType: double
+		lineageTag: db4e0911-b0fc-4e5c-b838-4136fa0e5f13
+		summarizeBy: sum
+		sourceColumn: SHOPPING_DAYS_PER_30_DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTAL_SALES_VALUE
+		dataType: double
+		lineageTag: 88e2936a-2c8a-4d83-8218-e74326eda5e6
+		summarizeBy: sum
+		sourceColumn: TOTAL_SALES_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_BASKET_VALUE
+		dataType: double
+		lineageTag: 360fe835-c528-4803-81ba-49e3fdb97895
+		summarizeBy: sum
+		sourceColumn: AVG_BASKET_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FIRST_OBSERVED_DAY
+		dataType: double
+		lineageTag: b729bbc5-f2ad-4740-8e3e-61883903d8a1
+		summarizeBy: sum
+		sourceColumn: FIRST_OBSERVED_DAY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LAST_OBSERVED_DAY
+		dataType: double
+		lineageTag: dc8109dd-3bdf-43d8-ac75-dfaec8f7ef50
+		summarizeBy: sum
+		sourceColumn: LAST_OBSERVED_DAY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OBSERVED_ACTIVITY_SPAN_DAYS
+		dataType: double
+		lineageTag: 257a9966-1dc7-485b-9ccb-65c44606582d
+		summarizeBy: sum
+		sourceColumn: OBSERVED_ACTIVITY_SPAN_DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RECENCY_DAYS
+		dataType: double
+		lineageTag: acc33cbc-07a1-4411-93c0-ef98756bef94
+		summarizeBy: sum
+		sourceColumn: RECENCY_DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_DAYS_BETWEEN_SHOPPING_DAYS
+		dataType: double
+		lineageTag: b12cdd65-cda0-4e56-990a-05f4eda1a393
+		summarizeBy: sum
+		sourceColumn: AVG_DAYS_BETWEEN_SHOPPING_DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column HAS_DEMOGRAPHICS
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 5cbb25ca-ddcd-4d68-bf84-60bc81e08320
+		summarizeBy: none
+		sourceColumn: HAS_DEMOGRAPHICS
+
+		annotation SummarizationSetBy = Automatic
+
+	column AGE_DESC
+		dataType: string
+		lineageTag: 27ee76e5-c4b2-4945-b46e-ea59a1363e13
+		summarizeBy: none
+		sourceColumn: AGE_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column MARITAL_STATUS
+		dataType: string
+		lineageTag: 1c5b29e7-33f7-4e00-9c8a-749bbee48491
+		summarizeBy: none
+		sourceColumn: MARITAL_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column INCOME_DESC
+		dataType: string
+		lineageTag: d1910963-b679-4df9-8b15-6a4c0101cd3e
+		summarizeBy: none
+		sourceColumn: INCOME_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column INCOME_BAND_ORDER
+		dataType: double
+		lineageTag: e7f3d928-4c6d-4b57-8cb8-8f15eba73a58
+		summarizeBy: sum
+		sourceColumn: INCOME_BAND_ORDER
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column HOMEOWNER_DESC
+		dataType: string
+		lineageTag: da5106ab-b31f-4adb-88f0-d204702e9697
+		summarizeBy: none
+		sourceColumn: HOMEOWNER_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column HH_COMP_DESC
+		dataType: string
+		lineageTag: fbec89c9-9d63-4b33-8c49-fc6a5236efdc
+		summarizeBy: none
+		sourceColumn: HH_COMP_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column HOUSEHOLD_SIZE_DESC
+		dataType: string
+		lineageTag: 22eb240f-71d8-4dd8-90fc-7d345cb7b9eb
+		summarizeBy: none
+		sourceColumn: HOUSEHOLD_SIZE_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column KID_CATEGORY_DESC
+		dataType: string
+		lineageTag: 58d04b57-020b-496b-a0e8-65caac8a7366
+		summarizeBy: none
+		sourceColumn: KID_CATEGORY_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column HAS_CAMPAIGN_ASSIGNMENT
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 02453ac4-4b82-488f-af6d-b3b4232b7d8a
+		summarizeBy: none
+		sourceColumn: HAS_CAMPAIGN_ASSIGNMENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_CAMPAIGNS_ASSIGNED
+		dataType: double
+		lineageTag: a17a7473-6ffc-45b2-9b39-b24f153a45a5
+		summarizeBy: sum
+		sourceColumn: TOTAL_CAMPAIGNS_ASSIGNED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TYPE_A_CAMPAIGNS_ASSIGNED
+		dataType: double
+		lineageTag: 4a5fbe6b-6b4f-4ea8-97fb-63e7d54ae706
+		summarizeBy: sum
+		sourceColumn: TYPE_A_CAMPAIGNS_ASSIGNED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TYPE_B_CAMPAIGNS_ASSIGNED
+		dataType: double
+		lineageTag: 9b99dfc4-e142-4d65-b681-862167ce4bc8
+		summarizeBy: sum
+		sourceColumn: TYPE_B_CAMPAIGNS_ASSIGNED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TYPE_C_CAMPAIGNS_ASSIGNED
+		dataType: double
+		lineageTag: fa6c6227-63be-42c6-8a43-2175338bb587
+		summarizeBy: sum
+		sourceColumn: TYPE_C_CAMPAIGNS_ASSIGNED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column HAS_COUPON_REDEMPTION
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: edcec396-a6a6-4d28-8c7d-1b443941b934
+		summarizeBy: none
+		sourceColumn: HAS_COUPON_REDEMPTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_REDEMPTION_EVENTS
+		dataType: double
+		lineageTag: 3e0678a6-1fd6-4dfb-82b9-110073009efb
+		summarizeBy: sum
+		sourceColumn: TOTAL_REDEMPTION_EVENTS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UNIQUE_COUPONS_REDEEMED
+		dataType: double
+		lineageTag: 6db3df84-215e-4d90-9935-37302c436643
+		summarizeBy: sum
+		sourceColumn: UNIQUE_COUPONS_REDEEMED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CAMPAIGNS_WITH_REDEMPTION
+		dataType: double
+		lineageTag: 3f703d63-d9a6-4c0f-90ee-72cdd9041bd8
+		summarizeBy: sum
+		sourceColumn: CAMPAIGNS_WITH_REDEMPTION
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CAMPAIGN_REDEMPTION_INCIDENCE
+		dataType: double
+		lineageTag: 1dc74df3-3bba-4b49-a00d-3de506b3c174
+		summarizeBy: sum
+		sourceColumn: CAMPAIGN_REDEMPTION_INCIDENCE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition CUSTOMER_360_FINAL = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases("UHFSJQH-KO10414.snowflakecomputing.com","CUSTOMER_ANALYTICS_WH",[Implementation="2.0"]),
+				    CUSTOMER_ANALYTICS_Database = Source{[Name="CUSTOMER_ANALYTICS",Kind="Database"]}[Data],
+				    ANALYTICS_Schema = CUSTOMER_ANALYTICS_Database{[Name="ANALYTICS",Kind="Schema"]}[Data],
+				    CUSTOMER_360_FINAL_Table = ANALYTICS_Schema{[Name="CUSTOMER_360_FINAL",Kind="Table"]}[Data]
+				in
+				    CUSTOMER_360_FINAL_Table
+
+	annotation PBI_ResultType = Table
+

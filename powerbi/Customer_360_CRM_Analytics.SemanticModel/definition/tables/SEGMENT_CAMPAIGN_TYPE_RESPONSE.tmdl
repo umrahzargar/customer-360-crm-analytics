@@ -1,0 +1,59 @@
+table SEGMENT_CAMPAIGN_TYPE_RESPONSE
+	lineageTag: f7100800-829f-4259-a640-d24c154a4acb
+
+	column CUSTOMER_SEGMENT
+		dataType: string
+		lineageTag: 851d6aa9-ea58-48bd-8651-31b38b681452
+		summarizeBy: none
+		sourceColumn: CUSTOMER_SEGMENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column CAMPAIGN_TYPE
+		dataType: string
+		lineageTag: 202bc841-3e0b-47cf-8f23-ff5c5e5622b3
+		summarizeBy: none
+		sourceColumn: CAMPAIGN_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ASSIGNMENTS
+		dataType: double
+		lineageTag: 18318e40-28a2-464c-a7af-a3d4858ab3af
+		summarizeBy: sum
+		sourceColumn: ASSIGNMENTS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RESPONDING_ASSIGNMENTS
+		dataType: double
+		lineageTag: a74d09dc-9ac6-4785-85cb-67bc5d3ba482
+		summarizeBy: sum
+		sourceColumn: RESPONDING_ASSIGNMENTS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RESPONSE_RATE
+		dataType: double
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 73976af8-183b-4a4c-933f-f2817758c4cf
+		summarizeBy: sum
+		sourceColumn: RESPONSE_RATE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SEGMENT_CAMPAIGN_TYPE_RESPONSE = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases("UHFSJQH-KO10414.snowflakecomputing.com","CUSTOMER_ANALYTICS_WH",[Implementation="2.0"]),
+				    CUSTOMER_ANALYTICS_Database = Source{[Name="CUSTOMER_ANALYTICS",Kind="Database"]}[Data],
+				    ANALYTICS_Schema = CUSTOMER_ANALYTICS_Database{[Name="ANALYTICS",Kind="Schema"]}[Data],
+				    SEGMENT_CAMPAIGN_TYPE_RESPONSE_Table = ANALYTICS_Schema{[Name="SEGMENT_CAMPAIGN_TYPE_RESPONSE",Kind="Table"]}[Data]
+				in
+				    SEGMENT_CAMPAIGN_TYPE_RESPONSE_Table
+

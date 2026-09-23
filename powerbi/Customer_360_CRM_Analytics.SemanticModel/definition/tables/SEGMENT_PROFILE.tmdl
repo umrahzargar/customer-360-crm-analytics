@@ -1,0 +1,265 @@
+table SEGMENT_PROFILE
+	lineageTag: 64dbb5bc-0bf0-4962-92ed-38dca9164969
+
+	measure 'Customer Share %' =
+			
+			DIVIDE(
+			    MAX(SEGMENT_PROFILE[CUSTOMER_SHARE_PCT]),
+			    100
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: a8d3eedd-76b7-458e-99e9-9fd70bed0c7e
+
+	measure 'Sales Share %' =
+			
+			DIVIDE(
+			    MAX(SEGMENT_PROFILE[SALES_SHARE_PCT]),
+			    100
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: baebd8c1-5e3e-44bd-8912-87af97e65081
+
+	measure 'Selected Segment Households' =
+			
+			SELECTEDVALUE(SEGMENT_PROFILE[HOUSEHOLD_COUNT])
+		lineageTag: 5c56cf58-2b38-4c43-a6d8-0dbd28c5da38
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Selected Segment Sales' =
+			
+			SELECTEDVALUE(SEGMENT_PROFILE[TOTAL_SALES_VALUE])
+		formatString: "£"#,0.00;-"£"#,0.00;"£"#,0.00
+		lineageTag: 036f15ff-d045-41d0-870c-18bbdca94b8e
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	measure 'Selected Avg Basket Value' =
+			
+			SELECTEDVALUE(SEGMENT_PROFILE[AVG_BASKET_VALUE])
+		formatString: "£"#,0.00;-"£"#,0.00;"£"#,0.00
+		lineageTag: 5a0b7dcf-095c-4642-8749-ccb002ca3622
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	measure 'Selected Shopping Days 30D' =
+			
+			SELECTEDVALUE(SEGMENT_PROFILE[AVG_SHOPPING_DAYS_30D])
+		lineageTag: 6d1ee88b-a66e-471e-9290-9c0655369c22
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Selected Avg Recency' =
+			
+			SELECTEDVALUE(SEGMENT_PROFILE[AVG_RECENCY_DAYS])
+		lineageTag: 97da4311-a58a-4c69-b108-5a74a50cad92
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Selected Demographic Coverage %' =
+			
+			DIVIDE(
+			    SELECTEDVALUE(SEGMENT_PROFILE[DEMOGRAPHIC_COVERAGE_PCT]),
+			    100
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 79775b69-4ce7-4c66-9226-9c7991c956e7
+
+	measure 'Selected Customer Share %' =
+			
+			DIVIDE(
+			    SELECTEDVALUE(SEGMENT_PROFILE[CUSTOMER_SHARE_PCT]),
+			    100
+			)
+		lineageTag: e9c01180-2137-4992-9c5b-14172e2dce7a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Selected Sales Share %' =
+			
+			DIVIDE(
+			    SELECTEDVALUE(SEGMENT_PROFILE[SALES_SHARE_PCT]),
+			    100
+			)
+		lineageTag: 580639f0-b5a9-4076-941b-c3220f1182f5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Household Share Subtext' =
+			
+			FORMAT([Selected Customer Share %], "0.0%")
+			    & " of all households"
+		lineageTag: d032467e-4c39-403a-b8db-834bb01f944f
+
+	measure 'Sales Share Subtext' =
+			
+			FORMAT([Selected Sales Share %], "0.0%")
+			    & " of total sales"
+		lineageTag: d2a2cd2a-fa23-48ca-ab6a-b86d64f43436
+
+	measure 'Basket Comparison Subtext' =
+			
+			"vs "
+			    & FORMAT([Overall Basket Value], "£0.00")
+			    & " overall"
+		lineageTag: f0735779-9036-4e92-8e37-8c517d7479e3
+
+	measure 'Selected Demographic Households' =
+			
+			ROUND(
+			    [Selected Segment Households]
+			        * [Selected Demographic Coverage %],
+			    0
+			)
+		lineageTag: e6bbaf54-607c-4e7a-b790-a0161c1cd819
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Demographic Coverage Subtext' =
+			
+			FORMAT([Selected Demographic Households], "0")
+			    & " of "
+			    & FORMAT([Selected Segment Households], "0")
+			    & " households"
+		lineageTag: 1945f680-7ab1-4a71-8793-c14a255a1d0c
+
+	column CUSTOMER_SEGMENT
+		dataType: string
+		lineageTag: c96fdee9-7e8c-4e80-814f-426ef675aef4
+		summarizeBy: none
+		sourceColumn: CUSTOMER_SEGMENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column HOUSEHOLD_COUNT
+		dataType: double
+		lineageTag: 538970d7-c2f2-4c10-b1c1-5b4a63e65931
+		summarizeBy: sum
+		sourceColumn: HOUSEHOLD_COUNT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CUSTOMER_SHARE_PCT
+		dataType: double
+		lineageTag: 77a612d9-3b18-4237-ae1c-a1bd1cccdbaa
+		summarizeBy: sum
+		sourceColumn: CUSTOMER_SHARE_PCT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTAL_SALES_VALUE
+		dataType: double
+		lineageTag: 7db86856-bdec-406d-81dd-1a6063718d79
+		summarizeBy: sum
+		sourceColumn: TOTAL_SALES_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SALES_SHARE_PCT
+		dataType: double
+		lineageTag: 18786fbe-61c0-4c50-afa8-7a1c06340f00
+		summarizeBy: sum
+		sourceColumn: SALES_SHARE_PCT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_SALES_PER_HOUSEHOLD
+		dataType: double
+		lineageTag: 4492c1e7-8d41-463a-bd89-0dbe176dfe05
+		summarizeBy: sum
+		sourceColumn: AVG_SALES_PER_HOUSEHOLD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_BASKET_VALUE
+		dataType: double
+		lineageTag: 2669770b-4676-466d-af37-dcae16b7451b
+		summarizeBy: sum
+		sourceColumn: AVG_BASKET_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_SHOPPING_DAYS_30D
+		dataType: double
+		lineageTag: b1d17939-cb93-47ad-b3b3-59d2a4dbef5c
+		summarizeBy: sum
+		sourceColumn: AVG_SHOPPING_DAYS_30D
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_RECENCY_DAYS
+		dataType: double
+		lineageTag: ebc33f36-16d9-4b05-8af3-38b9583bc382
+		summarizeBy: sum
+		sourceColumn: AVG_RECENCY_DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CAMPAIGN_ASSIGNED_HOUSEHOLDS
+		dataType: double
+		lineageTag: ae48679c-c5a8-4deb-a307-f5c81f35b636
+		summarizeBy: sum
+		sourceColumn: CAMPAIGN_ASSIGNED_HOUSEHOLDS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column REDEEMING_HOUSEHOLDS
+		dataType: double
+		lineageTag: f2900b1c-2aaa-48b9-8d9c-51d12f6e8dde
+		summarizeBy: sum
+		sourceColumn: REDEEMING_HOUSEHOLDS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_CAMPAIGN_REDEMPTION_INCIDENCE_PCT
+		dataType: double
+		lineageTag: ffa755f4-002e-4876-aed7-31eb29ae8ae8
+		summarizeBy: sum
+		sourceColumn: AVG_CAMPAIGN_REDEMPTION_INCIDENCE_PCT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DEMOGRAPHIC_COVERAGE_PCT
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 0b7c1ebe-144b-4628-8704-9988bafc1c58
+		summarizeBy: sum
+		sourceColumn: DEMOGRAPHIC_COVERAGE_PCT
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SEGMENT_PROFILE = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases("UHFSJQH-KO10414.snowflakecomputing.com","CUSTOMER_ANALYTICS_WH",[Implementation="2.0"]),
+				    CUSTOMER_ANALYTICS_Database = Source{[Name="CUSTOMER_ANALYTICS",Kind="Database"]}[Data],
+				    ANALYTICS_Schema = CUSTOMER_ANALYTICS_Database{[Name="ANALYTICS",Kind="Schema"]}[Data],
+				    SEGMENT_PROFILE_Table = ANALYTICS_Schema{[Name="SEGMENT_PROFILE",Kind="Table"]}[Data]
+				in
+				    SEGMENT_PROFILE_Table
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,25 @@
+model Model
+	culture: en-IN
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["CUSTOMER_ENGAGEMENT_STATUS","SEGMENT_PROFILE","CUSTOMER_360_FINAL","SEGMENT_CATEGORY_PROFILE","CAMPAIGN_PERFORMANCE","SEGMENT_CAMPAIGN_TYPE_RESPONSE","MARKET_BASKET_PAIRS"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table CUSTOMER_ENGAGEMENT_STATUS
+ref table SEGMENT_PROFILE
+ref table CUSTOMER_360_FINAL
+ref table SEGMENT_CATEGORY_PROFILE
+ref table CAMPAIGN_PERFORMANCE
+ref table SEGMENT_CAMPAIGN_TYPE_RESPONSE
+ref table MARKET_BASKET_PAIRS
+
+ref cultureInfo en-IN
+

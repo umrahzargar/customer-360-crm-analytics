@@ -1,0 +1,810 @@
+table CUSTOMER_ENGAGEMENT_STATUS
+	lineageTag: b07b746a-a96d-4e21-b5eb-1a3c34847ef7
+
+	measure 'Total Households' =
+			
+			DISTINCTCOUNT(
+			    CUSTOMER_ENGAGEMENT_STATUS[HOUSEHOLD_KEY]
+			)
+		formatString: 0
+		lineageTag: 473600d8-e3ed-4caf-ad8d-3392fde3272c
+
+	measure 'Total Sales Value' =
+			
+			SUM(
+			    CUSTOMER_ENGAGEMENT_STATUS[TOTAL_SALES_VALUE]
+			)
+		formatString: "£"#,0.00;-"£"#,0.00;"£"#,0.00
+		lineageTag: 12192360-40ca-43b3-81ea-ab5915bb4f94
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	measure 'Overall Basket Value' =
+			
+			DIVIDE(
+			    SUM(CUSTOMER_ENGAGEMENT_STATUS[TOTAL_SALES_VALUE]),
+			    SUM(CUSTOMER_ENGAGEMENT_STATUS[TOTAL_BASKETS])
+			)
+		formatString: "£"#,0.00;-"£"#,0.00;"£"#,0.00
+		lineageTag: 4415f161-2c9c-43a7-850e-378d668f1cba
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	measure 'Potential Lapse Households' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(CUSTOMER_ENGAGEMENT_STATUS[HOUSEHOLD_KEY]),
+			    CUSTOMER_ENGAGEMENT_STATUS[ENGAGEMENT_STATUS] = "Potential Lapse"
+			)
+		formatString: 0
+		lineageTag: 38e7133c-2669-4a2a-8a4b-544a6bab4e1f
+
+	measure 'Potential Lapse %' =
+			
+			DIVIDE(
+			    [Potential Lapse Households],
+			    [Total Households]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 36a3f763-7878-4802-8128-f40f3d75b2c8
+
+	measure 'Campaign Assigned Households' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(CUSTOMER_ENGAGEMENT_STATUS[HOUSEHOLD_KEY]),
+			    CUSTOMER_ENGAGEMENT_STATUS[HAS_CAMPAIGN_ASSIGNMENT] = TRUE()
+			)
+		formatString: 0
+		lineageTag: 52084583-7041-4107-9fb5-5ed31e248b2e
+
+	measure 'Coupon Redeeming Households' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(CUSTOMER_ENGAGEMENT_STATUS[HOUSEHOLD_KEY]),
+			    CUSTOMER_ENGAGEMENT_STATUS[HAS_COUPON_REDEMPTION] = TRUE()
+			)
+		formatString: 0
+		lineageTag: 74285ceb-d930-4f2a-ba0e-296fd2c058cb
+
+	measure 'HVI Households' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(CUSTOMER_ENGAGEMENT_STATUS[HOUSEHOLD_KEY]),
+			    CUSTOMER_ENGAGEMENT_STATUS[CUSTOMER_SEGMENT] = "High-Value Inactive"
+			)
+		formatString: 0
+		lineageTag: 78a8e88c-f910-40f2-851e-9e5c9e6db628
+
+	measure 'HVI Potential Lapse' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(CUSTOMER_ENGAGEMENT_STATUS[HOUSEHOLD_KEY]),
+			    CUSTOMER_ENGAGEMENT_STATUS[CUSTOMER_SEGMENT] = "High-Value Inactive",
+			    CUSTOMER_ENGAGEMENT_STATUS[ENGAGEMENT_STATUS] = "Potential Lapse"
+			)
+		formatString: 0
+		lineageTag: 2b195a31-d2b5-4965-a9b3-e3622ae039a3
+
+	measure 'HVI Potential Lapse Rate' =
+			
+			DIVIDE(
+			    [HVI Potential Lapse],
+			    [HVI Households]
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b2c7cf76-ed30-43fc-b75b-efc2023e39d1
+
+	measure 'HVI Lapse Historical Sales' =
+			
+			CALCULATE(
+			    SUM(CUSTOMER_ENGAGEMENT_STATUS[TOTAL_SALES_VALUE]),
+			    CUSTOMER_ENGAGEMENT_STATUS[CUSTOMER_SEGMENT] = "High-Value Inactive",
+			    CUSTOMER_ENGAGEMENT_STATUS[ENGAGEMENT_STATUS] = "Potential Lapse"
+			)
+		formatString: "£"#,0.00;-"£"#,0.00;"£"#,0.00
+		lineageTag: 34a87263-7c8b-4c7a-a150-0d22586a976f
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	measure 'Demographic Households' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(CUSTOMER_ENGAGEMENT_STATUS[HOUSEHOLD_KEY]),
+			    CUSTOMER_ENGAGEMENT_STATUS[HAS_DEMOGRAPHICS] = TRUE()
+			)
+		formatString: 0
+		lineageTag: b92cb516-2d27-4a27-bd0c-17a2c4b406e4
+
+	measure 'Age Group %' =
+			
+			DIVIDE(
+			    [Demographic Households],
+			    CALCULATE(
+			        [Demographic Households],
+			        REMOVEFILTERS(CUSTOMER_ENGAGEMENT_STATUS[AGE_DESC])
+			    )
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 66afd94e-1ce9-4b7f-b957-5bd7e4db7483
+
+	measure 'Household Composition %' =
+			
+			DIVIDE(
+			    [Demographic Households],
+			    CALCULATE(
+			        [Demographic Households],
+			        REMOVEFILTERS(CUSTOMER_ENGAGEMENT_STATUS[HH_COMP_DESC])
+			    )
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 9a2e139f-cb66-4407-919b-f030892560fe
+
+	measure 'Income Group %' =
+			
+			DIVIDE(
+			    [Demographic Households],
+			    CALCULATE(
+			        [Demographic Households],
+			        REMOVEFILTERS(CUSTOMER_ENGAGEMENT_STATUS[INCOME_DESC])
+			    )
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 58b15a8a-f693-409b-ac77-d652ecf5c5dd
+
+	measure 'Selected Segment Name' =
+			
+			SELECTEDVALUE(
+			    SEGMENT_PROFILE[CUSTOMER_SEGMENT],
+			    "All Segments"
+			)
+		lineageTag: 670ba31b-4dad-4549-94db-a97a601f3a86
+
+	measure 'Demographic Coverage Text' =
+			
+			"Coverage: "
+			    & FORMAT([Selected Demographic Coverage %], "0.0%")
+			    & " ("
+			    & FORMAT([Demographic Households], "#,0")
+			    & " of "
+			    & FORMAT([Selected Segment Households], "#,0")
+			    & " households)"
+		lineageTag: 396d344d-651f-4d7b-ba98-e2623c3494a5
+
+	measure 'Strong Decline Households' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(CUSTOMER_ENGAGEMENT_STATUS[HOUSEHOLD_KEY]),
+			    CUSTOMER_ENGAGEMENT_STATUS[ENGAGEMENT_STATUS] = "Strong Decline"
+			)
+		formatString: 0
+		lineageTag: f1744b0d-e5a4-4155-844c-32e363b1e5f2
+
+	measure 'Strong Decline %' =
+			
+			DIVIDE(
+			    [Strong Decline Households],
+			    [Total Households]
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ab3b8479-e6e5-4b1d-a5e6-06862416679e
+
+	measure 'Potential Lapse Share %' =
+			
+			DIVIDE(
+			    [Potential Lapse Households],
+			    [Total Households]
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ee9d0f85-31f0-46ce-b4f3-c91bee0947a3
+
+	measure 'HVI Total Households' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(CUSTOMER_ENGAGEMENT_STATUS[HOUSEHOLD_KEY]),
+			    CUSTOMER_ENGAGEMENT_STATUS[CUSTOMER_SEGMENT] = "High-Value Inactive"
+			)
+		formatString: 0
+		lineageTag: c9c5cec5-fc46-4f47-839c-4863b28ed2d6
+
+	measure 'HVI Lapse Households' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(CUSTOMER_ENGAGEMENT_STATUS[HOUSEHOLD_KEY]),
+			    CUSTOMER_ENGAGEMENT_STATUS[CUSTOMER_SEGMENT] = "High-Value Inactive",
+			    CUSTOMER_ENGAGEMENT_STATUS[ENGAGEMENT_STATUS] = "Potential Lapse"
+			)
+		formatString: 0
+		lineageTag: aac10074-9687-4945-8614-57aa240db186
+
+	measure 'HVI Lapse Rate' =
+			
+			DIVIDE(
+			    [HVI Lapse Households],
+			    [HVI Total Households]
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2413fe19-e95c-4777-9b40-3484ddc79c05
+
+	measure Measure
+		lineageTag: 52d6dcd3-7394-4817-9422-98e9844eab7b
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure 'HVI Lapse Historical Sales High-value inactive' =
+			
+			CALCULATE(
+			    SUM(CUSTOMER_ENGAGEMENT_STATUS[TOTAL_SALES_VALUE]),
+			    CUSTOMER_ENGAGEMENT_STATUS[CUSTOMER_SEGMENT] = "High-Value Inactive",
+			    CUSTOMER_ENGAGEMENT_STATUS[ENGAGEMENT_STATUS] = "Potential Lapse"
+			)
+		formatString: "£"#,0.00;-"£"#,0.00;"£"#,0.00
+		lineageTag: b34b1544-aebb-4948-b1ae-bc41f830b527
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	measure 'Potential Lapse Rate by Segment' =
+			
+			DIVIDE(
+			    CALCULATE(
+			        DISTINCTCOUNT(CUSTOMER_ENGAGEMENT_STATUS[HOUSEHOLD_KEY]),
+			        CUSTOMER_ENGAGEMENT_STATUS[ENGAGEMENT_STATUS] = "Potential Lapse"
+			    ),
+			    DISTINCTCOUNT(CUSTOMER_ENGAGEMENT_STATUS[HOUSEHOLD_KEY])
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 4a7ae346-e770-432e-81ea-9067924f702f
+
+	measure 'Potential Lapse Prior 90D Shopping Days' =
+			
+			CALCULATE(
+			    AVERAGE(CUSTOMER_ENGAGEMENT_STATUS[PRIOR_90D_SHOPPING_DAYS]),
+			    CUSTOMER_ENGAGEMENT_STATUS[ENGAGEMENT_STATUS] = "Potential Lapse"
+			)
+		formatString: 0.0
+		lineageTag: 89c3b56b-c879-422e-80a6-75bb4142a6fc
+
+	measure 'Potential Lapse Recent 90D Shopping Days' =
+			
+			CALCULATE(
+			    AVERAGE(CUSTOMER_ENGAGEMENT_STATUS[RECENT_90D_SHOPPING_DAYS]),
+			    CUSTOMER_ENGAGEMENT_STATUS[ENGAGEMENT_STATUS] = "Potential Lapse"
+			)
+		formatString: 0.0
+		lineageTag: 19477d99-7b8a-4087-9d11-f7740389814d
+
+	measure 'Potential Lapse Prior 90D Sales' =
+			
+			CALCULATE(
+			    AVERAGE(CUSTOMER_ENGAGEMENT_STATUS[PRIOR_90D_SALES]),
+			    CUSTOMER_ENGAGEMENT_STATUS[ENGAGEMENT_STATUS] = "Potential Lapse"
+			)
+		formatString: "£"#,0.0;-"£"#,0.0;"£"#,0.0
+		lineageTag: e76d09c2-391d-4879-8087-bcb483f363f0
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	measure 'Potential Lapse Recent 90D Sales' =
+			
+			CALCULATE(
+			    AVERAGE(CUSTOMER_ENGAGEMENT_STATUS[RECENT_90D_SALES]),
+			    CUSTOMER_ENGAGEMENT_STATUS[ENGAGEMENT_STATUS] = "Potential Lapse"
+			)
+		formatString: "£"#,0;-"£"#,0;"£"#,0
+		lineageTag: 7a70c59e-ef8e-4876-95b9-9959e4efc273
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	measure 'HVI Lapse Avg Historical Sales' =
+			
+			DIVIDE(
+			    [HVI Lapse Historical Sales],
+			    [HVI Lapse Households]
+			)
+		formatString: "£"#,0.00;-"£"#,0.00;"£"#,0.00
+		lineageTag: d2ed9ccb-de11-450f-b895-d3a8313b24ef
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	measure 'Measure 2'
+		lineageTag: 213f91be-9831-4c63-925a-3b417302fce0
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure 'Priority CRM Households' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(CUSTOMER_ENGAGEMENT_STATUS[HOUSEHOLD_KEY]),
+			    CUSTOMER_ENGAGEMENT_STATUS[CUSTOMER_SEGMENT] = "High-Value Inactive",
+			    CUSTOMER_ENGAGEMENT_STATUS[ENGAGEMENT_STATUS] = "Potential Lapse",
+			    CUSTOMER_ENGAGEMENT_STATUS[HAS_COUPON_REDEMPTION] = TRUE()
+			)
+		formatString: 0
+		lineageTag: 95294074-1ad8-4dc4-a79d-ac91fe3f550b
+
+	measure 'Priority CRM Historical Sales' =
+			
+			CALCULATE(
+			    SUM(CUSTOMER_ENGAGEMENT_STATUS[TOTAL_SALES_VALUE]),
+			    CUSTOMER_ENGAGEMENT_STATUS[CUSTOMER_SEGMENT] = "High-Value Inactive",
+			    CUSTOMER_ENGAGEMENT_STATUS[ENGAGEMENT_STATUS] = "Potential Lapse",
+			    CUSTOMER_ENGAGEMENT_STATUS[HAS_COUPON_REDEMPTION] = TRUE()
+			)
+		formatString: "£"#,0.00;-"£"#,0.00;"£"#,0.00
+		lineageTag: ed4c1818-674d-47ac-a89f-2addcd96b61f
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	measure 'Priority CRM Avg Historical Sales' =
+			
+			DIVIDE(
+			    [Priority CRM Historical Sales],
+			    [Priority CRM Households]
+			)
+		formatString: "£"#,0.00;-"£"#,0.00;"£"#,0.00
+		lineageTag: 989d24a2-9a78-42b9-8ac6-f0347a1379e8
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	measure 'Priority CRM Avg Recency' =
+			
+			CALCULATE(
+			    AVERAGE(CUSTOMER_ENGAGEMENT_STATUS[RECENCY_DAYS]),
+			    CUSTOMER_ENGAGEMENT_STATUS[CUSTOMER_SEGMENT] = "High-Value Inactive",
+			    CUSTOMER_ENGAGEMENT_STATUS[ENGAGEMENT_STATUS] = "Potential Lapse",
+			    CUSTOMER_ENGAGEMENT_STATUS[HAS_COUPON_REDEMPTION] = TRUE()
+			)
+		lineageTag: 85001c82-3c6b-42c9-96b0-71b919693674
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column HOUSEHOLD_KEY
+		dataType: double
+		lineageTag: a4e275b1-12d6-496b-bbc5-92f5d87f0259
+		summarizeBy: none
+		sourceColumn: HOUSEHOLD_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTAL_BASKETS
+		dataType: double
+		lineageTag: b8872a81-f88f-4952-9a2c-bec809577003
+		summarizeBy: sum
+		sourceColumn: TOTAL_BASKETS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTAL_SHOPPING_DAYS
+		dataType: double
+		lineageTag: c8f4dc85-88db-4079-90ac-fc948d24c930
+		summarizeBy: sum
+		sourceColumn: TOTAL_SHOPPING_DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SHOPPING_DAYS_PER_30_DAYS
+		dataType: double
+		lineageTag: be4dc21c-e8b6-4828-8244-ef325a1f4bfc
+		summarizeBy: sum
+		sourceColumn: SHOPPING_DAYS_PER_30_DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTAL_SALES_VALUE
+		dataType: double
+		lineageTag: 284f7c3c-4fdb-4062-a3c4-a7d875547aa7
+		summarizeBy: sum
+		sourceColumn: TOTAL_SALES_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_BASKET_VALUE
+		dataType: double
+		lineageTag: e7c81b1c-8eef-493b-a5cc-6d16686f4ca3
+		summarizeBy: sum
+		sourceColumn: AVG_BASKET_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FIRST_OBSERVED_DAY
+		dataType: double
+		lineageTag: 3fecffe4-3649-4352-aee0-f78dc80cb191
+		summarizeBy: sum
+		sourceColumn: FIRST_OBSERVED_DAY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LAST_OBSERVED_DAY
+		dataType: double
+		lineageTag: 51bfa099-2241-4315-a902-61ec7cae9136
+		summarizeBy: sum
+		sourceColumn: LAST_OBSERVED_DAY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OBSERVED_ACTIVITY_SPAN_DAYS
+		dataType: double
+		lineageTag: ca4fd03c-572c-4237-9329-305b3f46b8a4
+		summarizeBy: sum
+		sourceColumn: OBSERVED_ACTIVITY_SPAN_DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RECENCY_DAYS
+		dataType: double
+		lineageTag: 8898237e-a4c3-49ec-992c-381dab500d3e
+		summarizeBy: sum
+		sourceColumn: RECENCY_DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_DAYS_BETWEEN_SHOPPING_DAYS
+		dataType: double
+		lineageTag: 9864acfa-56df-44cd-9055-14f0c6b82a73
+		summarizeBy: sum
+		sourceColumn: AVG_DAYS_BETWEEN_SHOPPING_DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column HAS_DEMOGRAPHICS
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 5ffe730b-29a4-4e7a-b78a-8665fa5c98f2
+		summarizeBy: none
+		sourceColumn: HAS_DEMOGRAPHICS
+
+		annotation SummarizationSetBy = Automatic
+
+	column AGE_DESC
+		dataType: string
+		lineageTag: 8b23fb8e-f0c1-490a-a4fd-cf822c37aa18
+		summarizeBy: none
+		sourceColumn: AGE_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column MARITAL_STATUS
+		dataType: string
+		lineageTag: 6a4966b4-6bda-4f27-be23-c8d63a41640e
+		summarizeBy: none
+		sourceColumn: MARITAL_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column INCOME_DESC
+		dataType: string
+		lineageTag: 5caff482-b9f0-4ebe-8058-9cf6d5f23a35
+		summarizeBy: none
+		sourceColumn: INCOME_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column INCOME_BAND_ORDER
+		dataType: double
+		lineageTag: 25928569-4220-49d9-a5d2-8d2f2100218c
+		summarizeBy: sum
+		sourceColumn: INCOME_BAND_ORDER
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column HOMEOWNER_DESC
+		dataType: string
+		lineageTag: 4a56f130-d3d8-44f8-a387-485020bc2d84
+		summarizeBy: none
+		sourceColumn: HOMEOWNER_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column HH_COMP_DESC
+		dataType: string
+		lineageTag: f734c0e8-0a2d-4ef6-a805-b07bdef5fe68
+		summarizeBy: none
+		sourceColumn: HH_COMP_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column HOUSEHOLD_SIZE_DESC
+		dataType: string
+		lineageTag: 2851a47e-013b-4582-a51d-95e1eefeb5dd
+		summarizeBy: none
+		sourceColumn: HOUSEHOLD_SIZE_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column KID_CATEGORY_DESC
+		dataType: string
+		lineageTag: 1772170e-eb6c-4245-9e89-d7737d92485f
+		summarizeBy: none
+		sourceColumn: KID_CATEGORY_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column HAS_CAMPAIGN_ASSIGNMENT
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 004826a6-81ee-4c0b-82d6-a263e984305c
+		summarizeBy: none
+		sourceColumn: HAS_CAMPAIGN_ASSIGNMENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_CAMPAIGNS_ASSIGNED
+		dataType: double
+		lineageTag: 389f9d00-3689-4d37-891e-10169642c6bd
+		summarizeBy: sum
+		sourceColumn: TOTAL_CAMPAIGNS_ASSIGNED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TYPE_A_CAMPAIGNS_ASSIGNED
+		dataType: double
+		lineageTag: 55ea67ba-b61e-4aa2-837f-7ef3428290bc
+		summarizeBy: sum
+		sourceColumn: TYPE_A_CAMPAIGNS_ASSIGNED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TYPE_B_CAMPAIGNS_ASSIGNED
+		dataType: double
+		lineageTag: ca5be3d5-b371-418c-8a93-5f6b79bf7dc6
+		summarizeBy: sum
+		sourceColumn: TYPE_B_CAMPAIGNS_ASSIGNED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TYPE_C_CAMPAIGNS_ASSIGNED
+		dataType: double
+		lineageTag: 4f1896af-9f39-4074-b18a-72f066b8d96a
+		summarizeBy: sum
+		sourceColumn: TYPE_C_CAMPAIGNS_ASSIGNED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column HAS_COUPON_REDEMPTION
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: acdcd192-33b0-4f99-90d9-65fca85af155
+		summarizeBy: none
+		sourceColumn: HAS_COUPON_REDEMPTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_REDEMPTION_EVENTS
+		dataType: double
+		lineageTag: 43bfaf90-ce57-4c99-af9d-c2d2c1ace476
+		summarizeBy: sum
+		sourceColumn: TOTAL_REDEMPTION_EVENTS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UNIQUE_COUPONS_REDEEMED
+		dataType: double
+		lineageTag: 3576fbf3-23a7-48de-b244-b931c203b186
+		summarizeBy: sum
+		sourceColumn: UNIQUE_COUPONS_REDEEMED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CAMPAIGNS_WITH_REDEMPTION
+		dataType: double
+		lineageTag: eeb4fcee-9ebc-4781-8a13-e07d34b4fe69
+		summarizeBy: sum
+		sourceColumn: CAMPAIGNS_WITH_REDEMPTION
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CAMPAIGN_REDEMPTION_INCIDENCE
+		dataType: double
+		lineageTag: 749c707b-b6d9-402c-b40b-5dd28de23887
+		summarizeBy: sum
+		sourceColumn: CAMPAIGN_REDEMPTION_INCIDENCE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column R_SCORE
+		dataType: double
+		lineageTag: f8f0f20a-87e8-40da-8b42-5178603cc0bb
+		summarizeBy: sum
+		sourceColumn: R_SCORE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column F_SCORE
+		dataType: double
+		lineageTag: 21bd24a5-babf-4984-9128-86057a4b4545
+		summarizeBy: sum
+		sourceColumn: F_SCORE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column M_SCORE
+		dataType: double
+		lineageTag: 7704ce78-1ca9-4139-9315-6bce8eab3568
+		summarizeBy: sum
+		sourceColumn: M_SCORE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RFM_CODE
+		dataType: string
+		lineageTag: 70349235-b56c-42b4-8df8-1d06613064c5
+		summarizeBy: none
+		sourceColumn: RFM_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUSTOMER_SEGMENT
+		dataType: string
+		lineageTag: 15a1a60b-fa64-4a25-ad30-7a43934dbc22
+		summarizeBy: none
+		sourceColumn: CUSTOMER_SEGMENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRIOR_90D_SHOPPING_DAYS
+		dataType: double
+		lineageTag: 4f89fae4-2e35-4547-8224-ff1b733308a9
+		summarizeBy: sum
+		sourceColumn: PRIOR_90D_SHOPPING_DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RECENT_90D_SHOPPING_DAYS
+		dataType: double
+		lineageTag: b4a3b92c-67fe-4ecb-8684-51e44319f628
+		summarizeBy: sum
+		sourceColumn: RECENT_90D_SHOPPING_DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SHOPPING_DAY_CHANGE
+		dataType: double
+		lineageTag: eea3c112-19be-445c-92ea-2195cf42281c
+		summarizeBy: sum
+		sourceColumn: SHOPPING_DAY_CHANGE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SHOPPING_DAYS_LOST
+		dataType: double
+		lineageTag: 9988c2ec-aa21-49a5-8b99-b5c7c2ffc6fa
+		summarizeBy: sum
+		sourceColumn: SHOPPING_DAYS_LOST
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SHOPPING_DAY_CHANGE_PCT
+		dataType: double
+		lineageTag: d2640c58-0b89-4cfe-b5b1-b19f4c61b14e
+		summarizeBy: sum
+		sourceColumn: SHOPPING_DAY_CHANGE_PCT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PRIOR_90D_SALES
+		dataType: double
+		lineageTag: c2522c44-16b8-4293-aab4-476b15864839
+		summarizeBy: sum
+		sourceColumn: PRIOR_90D_SALES
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RECENT_90D_SALES
+		dataType: double
+		lineageTag: 48adf4ec-e8de-426f-a684-4e25080ee167
+		summarizeBy: sum
+		sourceColumn: RECENT_90D_SALES
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SALES_CHANGE
+		dataType: double
+		lineageTag: 009349c3-7715-40ed-bb7e-27fe29678a01
+		summarizeBy: sum
+		sourceColumn: SALES_CHANGE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SALES_CHANGE_PCT
+		dataType: double
+		formatString: 0
+		lineageTag: 60c1d116-0ca1-4a69-90fa-dd330b3f8ce2
+		summarizeBy: sum
+		sourceColumn: SALES_CHANGE_PCT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column RECENCY_VS_NORMAL
+		dataType: double
+		lineageTag: 2a1e7f13-ac60-4943-813a-db8a0b399c37
+		summarizeBy: sum
+		sourceColumn: RECENCY_VS_NORMAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ENGAGEMENT_STATUS
+		dataType: string
+		lineageTag: 6934ce21-44fd-4fdd-aa20-60013267ca04
+		summarizeBy: none
+		sourceColumn: ENGAGEMENT_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CUSTOMER_ENGAGEMENT_STATUS = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases("UHFSJQH-KO10414.snowflakecomputing.com","CUSTOMER_ANALYTICS_WH",[Implementation="2.0"]),
+				    CUSTOMER_ANALYTICS_Database = Source{[Name="CUSTOMER_ANALYTICS",Kind="Database"]}[Data],
+				    ANALYTICS_Schema = CUSTOMER_ANALYTICS_Database{[Name="ANALYTICS",Kind="Schema"]}[Data],
+				    CUSTOMER_ENGAGEMENT_STATUS_Table = ANALYTICS_Schema{[Name="CUSTOMER_ENGAGEMENT_STATUS",Kind="Table"]}[Data]
+				in
+				    CUSTOMER_ENGAGEMENT_STATUS_Table
+
+	annotation PBI_ResultType = Table
+
