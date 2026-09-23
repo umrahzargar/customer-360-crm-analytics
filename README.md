@@ -1,4 +1,4 @@
-# Customer 360 — Retention, Segmentation & CRM Analytics
+# Customer 360: Retention, Segmentation & CRM Analytics
 
 An end-to-end customer analytics project using **Snowflake, SQL and Power BI** to understand customer value, shopping behaviour, engagement decline, campaign response and actionable CRM opportunities.
 
