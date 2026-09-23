@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Customer_360_CRM_Analytics"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "58156699-4dd0-46b4-bd9f-072f8fbe6ef4"
+  }
+}

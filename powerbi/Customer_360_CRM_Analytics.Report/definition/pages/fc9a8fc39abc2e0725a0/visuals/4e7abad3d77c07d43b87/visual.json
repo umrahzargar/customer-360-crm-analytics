@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "4e7abad3d77c07d43b87",
+  "position": {
+    "x": 64.702359564019645,
+    "y": 55.255751619387979,
+    "z": 2000,
+    "height": 24.275184275184269,
+    "width": 122.84584980237152,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Total Sales Value",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#39475a"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "45fe188ab96bd06c9684"
+}

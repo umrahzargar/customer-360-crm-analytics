@@ -1,0 +1,59 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "b6d854d34c8087c1ece8",
+  "position": {
+    "x": 22,
+    "y": 674,
+    "z": 4000,
+    "height": 60,
+    "width": 141.5,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "From data",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "color": "#39475a"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "to better",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "color": "#39475a"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "customer decisions.",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "color": "#39475a"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

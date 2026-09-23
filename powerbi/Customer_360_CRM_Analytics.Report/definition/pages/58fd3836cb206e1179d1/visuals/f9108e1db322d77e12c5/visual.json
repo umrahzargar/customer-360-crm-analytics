@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "f9108e1db322d77e12c5",
+  "position": {
+    "x": 20.575091651934368,
+    "y": 73.163538151825961,
+    "z": 34000,
+    "height": 22.934390829326244,
+    "width": 221.7979582612609,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "All household-campaign exposure records",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI Light",
+                      "fontSize": "8pt"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "6deab4b0487694027508"
+}

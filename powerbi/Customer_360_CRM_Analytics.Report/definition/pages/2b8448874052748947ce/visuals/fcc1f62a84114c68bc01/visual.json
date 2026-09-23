@@ -1,0 +1,103 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "fcc1f62a84114c68bc01",
+  "position": {
+    "x": 83.10562206475042,
+    "y": 272.38677720427717,
+    "z": 6000,
+    "height": 87.682430100103559,
+    "width": 280.94166379012773,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "14",
+                    "textStyle": {
+                      "fontFamily": "Segoe (Bold)",
+                      "fontSize": "10pt",
+                      "color": "#a1343c"
+                    }
+                  },
+                  {
+                    "value": " households",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#39475a"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "£74.5K",
+                    "textStyle": {
+                      "fontFamily": "Segoe (Bold)",
+                      "fontSize": "10pt",
+                      "color": "#a1343c"
+                    }
+                  },
+                  {
+                    "value": " historical sales",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#39475a"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "£5,318.64",
+                    "textStyle": {
+                      "fontFamily": "Segoe (Bold)",
+                      "fontSize": "10pt",
+                      "color": "#a1343c"
+                    }
+                  },
+                  {
+                    "value": " avg historical sales per household",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#39475a"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "57.7",
+                    "textStyle": {
+                      "fontFamily": "Segoe (Bold)",
+                      "fontSize": "10pt",
+                      "color": "#a1343c"
+                    }
+                  },
+                  {
+                    "value": " days avg recency",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#39475a"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "5b7d64514808dad9c056"
+}

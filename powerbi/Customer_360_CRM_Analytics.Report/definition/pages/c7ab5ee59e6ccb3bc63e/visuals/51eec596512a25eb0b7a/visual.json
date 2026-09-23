@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "51eec596512a25eb0b7a",
+  "position": {
+    "x": 670,
+    "y": 586.36363636363626,
+    "z": 30000,
+    "height": 38.18181818181818,
+    "width": 344.5454545454545,
+    "tabOrder": 30000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Current recency ≥ 2× the household’s normal shopping gap",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#39475a"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

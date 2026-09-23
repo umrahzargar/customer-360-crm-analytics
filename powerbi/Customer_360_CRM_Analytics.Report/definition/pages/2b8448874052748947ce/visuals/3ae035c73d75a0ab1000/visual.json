@@ -1,0 +1,59 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "3ae035c73d75a0ab1000",
+  "position": {
+    "x": 22,
+    "y": 674,
+    "z": 5000,
+    "height": 60,
+    "width": 141.5,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "From Insights",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "color": "#39475a"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "to",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "color": "#39475a"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Actions",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "color": "#39475a"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

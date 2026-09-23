@@ -1,0 +1,312 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "813dd2feb5d60cab017b",
+  "position": {
+    "x": 1003.3333333333334,
+    "y": 571.66666666666674,
+    "z": 27000,
+    "height": 188.33333333333334,
+    "width": 401.66666666666669,
+    "tabOrder": 22000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MARKET_BASKET_PAIRS"
+                    }
+                  },
+                  "Property": "Category Pair"
+                }
+              },
+              "queryRef": "MARKET_BASKET_PAIRS.Category Pair",
+              "nativeQueryRef": "Category Pair"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MARKET_BASKET_PAIRS"
+                        }
+                      },
+                      "Property": "SUPPORT_PCT"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Sum(MARKET_BASKET_PAIRS.SUPPORT_PCT)",
+              "nativeQueryRef": "Support",
+              "displayName": "Support"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MARKET_BASKET_PAIRS"
+                        }
+                      },
+                      "Property": "CONFIDENCE_A_TO_B_PCT"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Sum(MARKET_BASKET_PAIRS.CONFIDENCE_A_TO_B_PCT)",
+              "nativeQueryRef": "Confidence",
+              "displayName": "Confidence"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MARKET_BASKET_PAIRS"
+                        }
+                      },
+                      "Property": "LIFT"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Sum(MARKET_BASKET_PAIRS.LIFT)",
+              "nativeQueryRef": "Lift",
+              "displayName": "Lift"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "MARKET_BASKET_PAIRS"
+                      }
+                    },
+                    "Property": "LIFT"
+                  }
+                },
+                "Function": 4
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "161.24771486537304D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MARKET_BASKET_PAIRS.Category Pair"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F4E6E7'"
+                    }
+                  }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "italic": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {}
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Minimal'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "369232f0733387ad5c4e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MARKET_BASKET_PAIRS"
+              }
+            },
+            "Property": "Category Pair"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "m",
+              "Entity": "MARKET_BASKET_PAIRS",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "m"
+                          }
+                        },
+                        "Property": "Category Pair"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'CHEESE + DELI MEATS'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'CAT FOOD + CAT LITTER'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'DRY NOODLES/PASTA + DRY SAUCES/GRAVY'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

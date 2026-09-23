@@ -1,0 +1,182 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "773c715a51570828a2db",
+  "position": {
+    "x": 187.33333333333334,
+    "y": 27.814378190161506,
+    "z": 34000,
+    "height": 170.66666666666666,
+    "width": 193.33333333333334,
+    "tabOrder": 29000
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CUSTOMER_ENGAGEMENT_STATUS"
+                    }
+                  },
+                  "Property": "Potential Lapse Prior 90D Sales"
+                }
+              },
+              "queryRef": "CUSTOMER_ENGAGEMENT_STATUS.Potential Lapse Prior 90D Sales",
+              "nativeQueryRef": "Prior 90D Sales",
+              "displayName": "Prior 90D Sales"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CUSTOMER_ENGAGEMENT_STATUS"
+                    }
+                  },
+                  "Property": "Potential Lapse Recent 90D Sales"
+                }
+              },
+              "queryRef": "CUSTOMER_ENGAGEMENT_STATUS.Potential Lapse Recent 90D Sales",
+              "nativeQueryRef": "Potential Lapse Recent 90D Sales"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "CUSTOMER_ENGAGEMENT_STATUS"
+                  }
+                },
+                "Property": "Potential Lapse Prior 90D Sales"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelOrientation": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 9,
+                      "Percent": 0.2
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CUSTOMER_ENGAGEMENT_STATUS.Potential Lapse Recent 90D Sales"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": -0.25
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CUSTOMER_ENGAGEMENT_STATUS.Potential Lapse Prior 90D Sales"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "072b05ffe7ea70d07b80"
+}

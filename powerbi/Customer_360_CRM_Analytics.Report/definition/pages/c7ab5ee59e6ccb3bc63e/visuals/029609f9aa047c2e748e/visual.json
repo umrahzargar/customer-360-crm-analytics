@@ -1,0 +1,59 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "029609f9aa047c2e748e",
+  "position": {
+    "x": 21.473248187780463,
+    "y": 645.98688298239563,
+    "z": 3000,
+    "height": 87.682430100103559,
+    "width": 141.36555056955473,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "From Insights",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "color": "#39475a"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "to Lasting ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "color": "#39475a"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Customer Relationships",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "color": "#39475a"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

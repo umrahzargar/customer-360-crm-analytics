@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "8e44a9702ea745050ab1",
+  "position": {
+    "x": 57,
+    "y": 103,
+    "z": 4000,
+    "height": 40,
+    "width": 324,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "High-Value Active households represent 32.2% of customers but generate 62.1% of total sales value.",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#56616f"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "012e406d3ce0066cb414"
+}

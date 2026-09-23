@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "826eae7bae202c586de2",
+  "position": {
+    "x": 669.090909090909,
+    "y": 521.81818181818176,
+    "z": 28000,
+    "height": 40,
+    "width": 343.63636363636363,
+    "tabOrder": 28000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Shopping days ↓ at least 50% and at least 3 shopping days lost",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#39475a"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

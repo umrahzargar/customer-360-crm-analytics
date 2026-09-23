@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "c87f57812813e535e149",
+  "position": {
+    "x": 46.938775510204053,
+    "y": 55.911674991018089,
+    "z": 2000,
+    "height": 40,
+    "width": 180,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Priority re-engagement households",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI Semibold",
+                      "color": "#39475a"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "23c3bfb2bd941c93e657"
+}

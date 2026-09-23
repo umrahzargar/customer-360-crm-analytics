@@ -1,0 +1,48 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "099d79002572e60b07a8",
+  "position": {
+    "x": 963.33333333333326,
+    "y": 582.22222222222217,
+    "z": 22000,
+    "height": 37.777777777777779,
+    "width": 417.77777777777777,
+    "tabOrder": 14000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "5.6% of customers show potential lapse behavior, highlighting a ",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#56616f"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "clear retention opportunity.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#56616f"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

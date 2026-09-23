@@ -1,0 +1,198 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "b73b07e317d4db570097",
+  "position": {
+    "x": 235,
+    "y": 277.5,
+    "z": 20000,
+    "height": 226.25,
+    "width": 547.5,
+    "tabOrder": 15000
+  },
+  "visual": {
+    "visualType": "lineClusteredColumnComboChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CAMPAIGN_PERFORMANCE"
+                    }
+                  },
+                  "Property": "CAMPAIGN_TYPE"
+                }
+              },
+              "queryRef": "CAMPAIGN_PERFORMANCE.CAMPAIGN_TYPE",
+              "nativeQueryRef": "CAMPAIGN_TYPE",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CAMPAIGN_PERFORMANCE"
+                    }
+                  },
+                  "Property": "Household Campaign Assignments"
+                }
+              },
+              "queryRef": "CAMPAIGN_PERFORMANCE.Household Campaign Assignments",
+              "nativeQueryRef": "Assignments",
+              "displayName": "Assignments"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CAMPAIGN_PERFORMANCE"
+                    }
+                  },
+                  "Property": "Responding Assignments"
+                }
+              },
+              "queryRef": "CAMPAIGN_PERFORMANCE.Responding Assignments",
+              "nativeQueryRef": "Responding Assignments"
+            }
+          ]
+        },
+        "Y2": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CAMPAIGN_PERFORMANCE"
+                    }
+                  },
+                  "Property": "Campaign Type Response Rate"
+                }
+              },
+              "queryRef": "CAMPAIGN_PERFORMANCE.Campaign Type Response Rate",
+              "nativeQueryRef": "Response Rate",
+              "displayName": "Response Rate"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "CAMPAIGN_PERFORMANCE"
+                  }
+                },
+                "Property": "Household Campaign Assignments"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "lineStyles": [
+        {
+          "properties": {
+            "showMarker": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'TopCenter'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

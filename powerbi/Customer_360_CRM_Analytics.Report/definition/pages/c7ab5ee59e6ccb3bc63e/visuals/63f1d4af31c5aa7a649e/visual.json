@@ -1,0 +1,44 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "63f1d4af31c5aa7a649e",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 500,
+    "height": 21.111111111111111,
+    "width": 350,
+    "tabOrder": 42007
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "At-Risk Household Detail",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "color": "#39475a"
+                    }
+                  },
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "color": "#39475a"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "26bd5584ad6baeedc03c"
+}

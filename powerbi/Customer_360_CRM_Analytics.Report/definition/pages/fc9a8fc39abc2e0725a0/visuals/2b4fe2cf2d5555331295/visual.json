@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "2b4fe2cf2d5555331295",
+  "position": {
+    "x": 68.079026524473633,
+    "y": 56.133836477987444,
+    "z": 2000,
+    "height": 24.266666666666662,
+    "width": 87.560386473429944,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Households",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#39475a"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "f01559650340ca6a4dc6"
+}

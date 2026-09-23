@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "5ba65084736eab3d7664",
+  "position": {
+    "x": 1028.3333333333335,
+    "y": 413.33333333333337,
+    "z": 22000,
+    "height": 75,
+    "width": 376.66666666666669,
+    "tabOrder": 17000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Use basket analysis to identify products that are often purchased together and test targeted bundle offers in CRM campaigns. ",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#39475a"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

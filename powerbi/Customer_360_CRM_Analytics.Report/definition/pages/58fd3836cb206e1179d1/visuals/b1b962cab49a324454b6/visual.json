@@ -1,0 +1,220 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "b1b962cab49a324454b6",
+  "position": {
+    "x": 715,
+    "y": 587.5,
+    "z": 32000,
+    "height": 217.5,
+    "width": 532.5,
+    "tabOrder": 30000
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CAMPAIGN_PERFORMANCE"
+                    }
+                  },
+                  "Property": "CAMPAIGN"
+                }
+              },
+              "queryRef": "CAMPAIGN_PERFORMANCE.CAMPAIGN",
+              "nativeQueryRef": "CAMPAIGN",
+              "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CAMPAIGN_PERFORMANCE"
+                    }
+                  },
+                  "Property": "CAMPAIGN_TYPE"
+                }
+              },
+              "queryRef": "CAMPAIGN_PERFORMANCE.CAMPAIGN_TYPE",
+              "nativeQueryRef": "CAMPAIGN_TYPE"
+            }
+          ]
+        },
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CAMPAIGN_PERFORMANCE"
+                        }
+                      },
+                      "Property": "ASSIGNED_HOUSEHOLDS"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(CAMPAIGN_PERFORMANCE.ASSIGNED_HOUSEHOLDS)",
+              "nativeQueryRef": "Sum of ASSIGNED_HOUSEHOLDS"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CAMPAIGN_PERFORMANCE"
+                        }
+                      },
+                      "Property": "RESPONSE_RATE_PCT"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(CAMPAIGN_PERFORMANCE.RESPONSE_RATE_PCT)",
+              "nativeQueryRef": "Campaign response rate (%)",
+              "active": true,
+              "displayName": "Campaign response rate (%)"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CAMPAIGN_PERFORMANCE"
+                        }
+                      },
+                      "Property": "SALES_CHANGE_PCT"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(CAMPAIGN_PERFORMANCE.SALES_CHANGE_PCT)",
+              "nativeQueryRef": "Pre/post sales change (%)",
+              "displayName": "Pre/post sales change (%)"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "legend": [
+        {
+          "properties": {
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'RightCenter'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "y1AxisReferenceLine": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "displayName": {
+              "expr": {
+                "Literal": {
+                  "Value": "'No sales change'"
+                }
+              }
+            },
+            "lineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "1"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

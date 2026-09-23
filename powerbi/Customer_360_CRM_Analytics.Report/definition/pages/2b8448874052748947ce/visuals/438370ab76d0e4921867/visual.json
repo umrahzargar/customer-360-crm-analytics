@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "438370ab76d0e4921867",
+  "position": {
+    "x": 76.530612244897938,
+    "y": 59.183673469387742,
+    "z": 2000,
+    "height": 40,
+    "width": 151.42857142857144,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Average historical sales per household",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI Semibold",
+                      "color": "#39475a"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "cafb724eb914b31be002"
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "61d1e47639189c800013",
+  "position": {
+    "x": 212.94304452882292,
+    "y": 119.89230238177426,
+    "z": 9000,
+    "height": 25.052122885743874,
+    "width": 1100.5039696237488,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Comparing campaign types, response behavior and redemption outcomes across 30 campaigns and 2,500 households.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI Light"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

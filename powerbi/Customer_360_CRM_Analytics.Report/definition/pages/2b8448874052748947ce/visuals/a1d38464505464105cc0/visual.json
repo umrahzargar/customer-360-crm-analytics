@@ -1,0 +1,87 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "a1d38464505464105cc0",
+  "position": {
+    "x": 75.885434514155619,
+    "y": 265.60297486427959,
+    "z": 6000,
+    "height": 94.545454545454533,
+    "width": 283.63636363636363,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Grocery (100%)",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#39475a"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Produce (100%)",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#39475a"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Drug GM (100%)",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#39475a"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Meat-Packaged (100%)",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#39475a"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Meat (92.9%)",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#39475a"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "01d328e4d42e8acd0da1"
+}

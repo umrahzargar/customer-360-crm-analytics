@@ -1,0 +1,284 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "Fluent2-CY26SU08",
+      "reportVersionAtImport": {
+        "visual": "2.12.0",
+        "report": "3.4.0",
+        "page": "2.3.1"
+      },
+      "type": "SharedResources"
+    }
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "Fluent2-CY26SU08",
+          "path": "BaseThemes/Fluent2-CY26SU08.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "1-solid-full5985857771134522.svg",
+          "path": "1-solid-full5985857771134522.svg",
+          "type": "Image"
+        },
+        {
+          "name": "2-solid-full8528153972111783.svg",
+          "path": "2-solid-full8528153972111783.svg",
+          "type": "Image"
+        },
+        {
+          "name": "3-solid-full47294627182913107.svg",
+          "path": "3-solid-full47294627182913107.svg",
+          "type": "Image"
+        },
+        {
+          "name": "arrow-trend-up-solid-full053686561175881.svg",
+          "path": "arrow-trend-up-solid-full053686561175881.svg",
+          "type": "Image"
+        },
+        {
+          "name": "banne_2653287203251284.png",
+          "path": "banne_2653287203251284.png",
+          "type": "Image"
+        },
+        {
+          "name": "banner_313818861773178026.png",
+          "path": "banner_313818861773178026.png",
+          "type": "Image"
+        },
+        {
+          "name": "banner_42684291290996188.png",
+          "path": "banner_42684291290996188.png",
+          "type": "Image"
+        },
+        {
+          "name": "banner45963750595226704.png",
+          "path": "banner45963750595226704.png",
+          "type": "Image"
+        },
+        {
+          "name": "box-open-solid-full1307446824022922.svg",
+          "path": "box-open-solid-full1307446824022922.svg",
+          "type": "Image"
+        },
+        {
+          "name": "bullhorn-solid-full7998002036055506.svg",
+          "path": "bullhorn-solid-full7998002036055506.svg",
+          "type": "Image"
+        },
+        {
+          "name": "bullhorn-solid-full8564017592873238.svg",
+          "path": "bullhorn-solid-full8564017592873238.svg",
+          "type": "Image"
+        },
+        {
+          "name": "bullseye-solid-full015468319039463885.svg",
+          "path": "bullseye-solid-full015468319039463885.svg",
+          "type": "Image"
+        },
+        {
+          "name": "bullseye-solid-full22400262495204115.svg",
+          "path": "bullseye-solid-full22400262495204115.svg",
+          "type": "Image"
+        },
+        {
+          "name": "cart-shopping-solid-full30810238781367394.svg",
+          "path": "cart-shopping-solid-full30810238781367394.svg",
+          "type": "Image"
+        },
+        {
+          "name": "cart-shopping-solid-full6814539922809493.svg",
+          "path": "cart-shopping-solid-full6814539922809493.svg",
+          "type": "Image"
+        },
+        {
+          "name": "cart-shopping-solid-full9982858420587324.svg",
+          "path": "cart-shopping-solid-full9982858420587324.svg",
+          "type": "Image"
+        },
+        {
+          "name": "chart-pie-solid-full05223284935669292.svg",
+          "path": "chart-pie-solid-full05223284935669292.svg",
+          "type": "Image"
+        },
+        {
+          "name": "chart-pie-solid-full24168820549699987.svg",
+          "path": "chart-pie-solid-full24168820549699987.svg",
+          "type": "Image"
+        },
+        {
+          "name": "chart-simple-solid-full2808380622368226.svg",
+          "path": "chart-simple-solid-full2808380622368226.svg",
+          "type": "Image"
+        },
+        {
+          "name": "chart-simple-solid-full5873000134816955.svg",
+          "path": "chart-simple-solid-full5873000134816955.svg",
+          "type": "Image"
+        },
+        {
+          "name": "chart-simple-solid-full9473605225060394.svg",
+          "path": "chart-simple-solid-full9473605225060394.svg",
+          "type": "Image"
+        },
+        {
+          "name": "chart-simple-solid-full9913291485040865.svg",
+          "path": "chart-simple-solid-full9913291485040865.svg",
+          "type": "Image"
+        },
+        {
+          "name": "circle-info-solid-full02363978229144259.svg",
+          "path": "circle-info-solid-full02363978229144259.svg",
+          "type": "Image"
+        },
+        {
+          "name": "clock-regular-full6351655038975662.svg",
+          "path": "clock-regular-full6351655038975662.svg",
+          "type": "Image"
+        },
+        {
+          "name": "house-chimney-user-solid-full_5874558371456895.svg",
+          "path": "house-chimney-user-solid-full_5874558371456895.svg",
+          "type": "Image"
+        },
+        {
+          "name": "house-chimney-user-solid-full_8413894248023673.svg",
+          "path": "house-chimney-user-solid-full_8413894248023673.svg",
+          "type": "Image"
+        },
+        {
+          "name": "layer-group-solid-full26066301270707215.svg",
+          "path": "layer-group-solid-full26066301270707215.svg",
+          "type": "Image"
+        },
+        {
+          "name": "layer-group-solid-full41349086556099524.svg",
+          "path": "layer-group-solid-full41349086556099524.svg",
+          "type": "Image"
+        },
+        {
+          "name": "layer-group-solid-full5065510872107389.svg",
+          "path": "layer-group-solid-full5065510872107389.svg",
+          "type": "Image"
+        },
+        {
+          "name": "layer-group-solid-full5851728109863105.svg",
+          "path": "layer-group-solid-full5851728109863105.svg",
+          "type": "Image"
+        },
+        {
+          "name": "logo9715299211331485.png",
+          "path": "logo9715299211331485.png",
+          "type": "Image"
+        },
+        {
+          "name": "Screenshot_2026-09-21_19194237272564720871526.png",
+          "path": "Screenshot_2026-09-21_19194237272564720871526.png",
+          "type": "Image"
+        },
+        {
+          "name": "Screenshot_2026-09-21_1928476584593732215831.png",
+          "path": "Screenshot_2026-09-21_1928476584593732215831.png",
+          "type": "Image"
+        },
+        {
+          "name": "Screenshot_2026-09-21_1944129758655723309883.png",
+          "path": "Screenshot_2026-09-21_1944129758655723309883.png",
+          "type": "Image"
+        },
+        {
+          "name": "tag-solid-full6873991172283128.svg",
+          "path": "tag-solid-full6873991172283128.svg",
+          "type": "Image"
+        },
+        {
+          "name": "tag-solid-full960612669065756.svg",
+          "path": "tag-solid-full960612669065756.svg",
+          "type": "Image"
+        },
+        {
+          "name": "triangle-exclamation-solid-ful18653321549089374.svg",
+          "path": "triangle-exclamation-solid-ful18653321549089374.svg",
+          "type": "Image"
+        },
+        {
+          "name": "triangle-exclamation-solid-ful7383687538656434.svg",
+          "path": "triangle-exclamation-solid-ful7383687538656434.svg",
+          "type": "Image"
+        },
+        {
+          "name": "user-tag-solid-full42948557911400553.svg",
+          "path": "user-tag-solid-full42948557911400553.svg",
+          "type": "Image"
+        },
+        {
+          "name": "users-solid-full032217745945169796.svg",
+          "path": "users-solid-full032217745945169796.svg",
+          "type": "Image"
+        },
+        {
+          "name": "users-solid-full05047287040475412.svg",
+          "path": "users-solid-full05047287040475412.svg",
+          "type": "Image"
+        },
+        {
+          "name": "users-solid-full7451718355908984.svg",
+          "path": "users-solid-full7451718355908984.svg",
+          "type": "Image"
+        },
+        {
+          "name": "users-solid-full8664886576178078.svg",
+          "path": "users-solid-full8664886576178078.svg",
+          "type": "Image"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true
+  }
+}

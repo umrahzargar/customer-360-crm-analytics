@@ -1,0 +1,283 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "05ca638b40c759ad0d17",
+  "position": {
+    "x": 661.42857142857144,
+    "y": 347.14285714285717,
+    "z": 27000,
+    "height": 234.28571428571431,
+    "width": 455.71428571428572,
+    "tabOrder": 23000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SEGMENT_PROFILE"
+                    }
+                  },
+                  "Property": "CUSTOMER_SEGMENT"
+                }
+              },
+              "queryRef": "SEGMENT_PROFILE.CUSTOMER_SEGMENT",
+              "nativeQueryRef": "CUSTOMER_SEGMENT"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SEGMENT_PROFILE"
+                    }
+                  },
+                  "Property": "HOUSEHOLD_COUNT"
+                }
+              },
+              "queryRef": "SEGMENT_PROFILE.HOUSEHOLD_COUNT",
+              "nativeQueryRef": "HOUSEHOLD_COUNT"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SEGMENT_PROFILE"
+                    }
+                  },
+                  "Property": "CUSTOMER_SHARE_PCT"
+                }
+              },
+              "queryRef": "SEGMENT_PROFILE.CUSTOMER_SHARE_PCT",
+              "nativeQueryRef": "CUSTOMER_SHARE_PCT"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SEGMENT_PROFILE"
+                    }
+                  },
+                  "Property": "SALES_SHARE_PCT"
+                }
+              },
+              "queryRef": "SEGMENT_PROFILE.SALES_SHARE_PCT",
+              "nativeQueryRef": "SALES_SHARE_PCT"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "SEGMENT_PROFILE"
+                  }
+                },
+                "Property": "CUSTOMER_SEGMENT"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8.5D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#56616f'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8.5D"
+                }
+              }
+            },
+            "fontColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#56616f'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#56616f'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "140.5000003109808D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "SEGMENT_PROFILE.CUSTOMER_SEGMENT"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "70.49999354370829D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "SEGMENT_PROFILE.HOUSEHOLD_COUNT"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "92.94737310944122D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "SEGMENT_PROFILE.CUSTOMER_SHARE_PCT"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "113.72234633546988D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "SEGMENT_PROFILE.SALES_SHARE_PCT"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Minimal'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
